@@ -29,12 +29,14 @@ import org.eclipse.tractusx.discoveryfinder.model.DiscoveryEndpointCollection;
 import org.eclipse.tractusx.discoveryfinder.model.Endpoint;
 import org.eclipse.tractusx.discoveryfinder.model.SearchRequest;
 import org.eclipse.tractusx.discoveryfinder.service.DiscoveryFinderService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.NativeWebRequest;
 
 @Service
+@Primary
 public class DiscoveryEndpointFinderApiDelegate implements FinderApiDelegate {
    private final DiscoveryFinderService discoveryFinderService;
    private final DiscoveryFinderMapper discoveryFinderMapper;

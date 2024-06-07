@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cofinityx</groupId>
+    <artifactId>downstream-discovery-finder-backend</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Downstream Cofinity-X Discovery Finder Backend</name>
+
+    <parent>
+        <groupId>org.eclipse.tractusx</groupId>
+        <artifactId>discovery-finder</artifactId>
+        <version>DEV-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <start-class>com.cofinityx.DownstreamDiscoveryFinderApplication</start-class>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.eclipse.tractusx</groupId>
+            <artifactId>discovery-finder-backend</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-discovery-finder-api-stubs</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/../backend/src/main/resources/static/discovery-finder-openapi.yaml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <generateSupportingFiles>true</generateSupportingFiles>
+                            <packageName>org.eclipse.tractusx.discoveryfinder</packageName>
+                            <modelPackage>org.eclipse.tractusx.discoveryfinder.model</modelPackage>
+                            <apiPackage>org.eclipse.tractusx.discoveryfinder.api</apiPackage>
+                            <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                            <configOptions>
+                                <useTags>true</useTags>
+                                <oas3>true</oas3>
+                                <delegatePattern>true</delegatePattern>
+                                <packageName>org.eclipse.tractusx</packageName>
+                                <useBeanValidation>true</useBeanValidation>
+                                <useSpringfox>false</useSpringfox>
+                                <useSpringBoot3>true</useSpringBoot3>
+                            </configOptions>
+                            <invokerPackage>org.eclipse.tractusx.semantics</invokerPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

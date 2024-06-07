@@ -52,6 +52,7 @@ servers:
         default: v1.0
         enum:
           - v1.0
+          - v1.1
 paths:
   /administration/connectors/discovery:
     post:

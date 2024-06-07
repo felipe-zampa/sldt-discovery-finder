@@ -90,9 +90,10 @@
       <maven.compiler.version>3.8.1</maven.compiler.version>
    </properties>
 
-   <modules>
-      <module>backend</module>
-   </modules>
+  <modules>
+    <module>backend</module>
+    <module>downstream-backend</module>
+  </modules>
 
    <dependencies>
       <!-- Framework -->
