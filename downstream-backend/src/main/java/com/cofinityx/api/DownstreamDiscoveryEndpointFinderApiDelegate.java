@@ -3,6 +3,7 @@ package com.cofinityx.api;
 import org.eclipse.tractusx.discoveryfinder.api.FinderApiDelegate;
 import org.eclipse.tractusx.discoveryfinder.service.DiscoveryFinderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,8 @@ public class DownstreamDiscoveryEndpointFinderApiDelegate implements FinderApiDe
     // DownstreamService implements DiscoveryFinderService
     private DiscoveryFinderService discoveryFinderService;
 
-    public DownstreamDiscoveryEndpointFinderApiDelegate(@Autowired DiscoveryFinderService discoveryFinderService){
+    public DownstreamDiscoveryEndpointFinderApiDelegate(@Autowired @Qualifier("downstreamService")
+                                                        DiscoveryFinderService discoveryFinderService){
         this.discoveryFinderService = discoveryFinderService;
     }
 

@@ -25,10 +25,12 @@ import org.eclipse.tractusx.discoveryfinder.dto.EndpointCollectionDto;
 import org.eclipse.tractusx.discoveryfinder.model.Endpoint;
 import org.eclipse.tractusx.discoveryfinder.repository.EndpointRepository;
 import org.eclipse.tractusx.discoveryfinder.service.utils.UuidUtils;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Primary
 public class DiscoveryFinderService {
    private final EndpointRepository endpointRepository;
 
