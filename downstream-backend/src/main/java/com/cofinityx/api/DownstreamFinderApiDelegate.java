@@ -9,13 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service("downstreamDelegate")
-public class DownstreamDiscoveryEndpointFinderApiDelegate implements FinderApiDelegate {
+public class DownstreamFinderApiDelegate implements FinderApiDelegate {
 
     //if we need to implement a different Service version the same strategy can be applied here
     // DownstreamService implements DiscoveryFinderService
     private DiscoveryFinderService discoveryFinderService;
 
-    public DownstreamDiscoveryEndpointFinderApiDelegate(@Autowired @Qualifier("downstreamService")
+    public DownstreamFinderApiDelegate(@Autowired @Qualifier("downstreamService")
                                                         DiscoveryFinderService discoveryFinderService){
         this.discoveryFinderService = discoveryFinderService;
     }
